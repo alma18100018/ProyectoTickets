@@ -1,0 +1,98 @@
+
+
+body{
+    margin: auto;
+    padding: auto;
+    background: url(../imagenes/Fondo.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+h1{
+    width: 90%;
+    text-align: center;
+    background: rgba(23, 24, 104, 0.39);
+    color: white;
+    padding: 20px;
+    background-image: url(../imagenes/logo.png);
+    background-position: top right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+nav li{
+    display: inline-flex;
+}
+
+nav a {
+    padding: 30px;
+    width: 150px;
+}
+
+#contenido{
+  height: 540px;
+  margin: auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.39); 
+  box-sizing: border-box;
+   
+}
+
+#contenido2{
+  height: 900px;
+  margin: auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.39);
+  box-sizing: border-box;
+   
+}
+
+#texto{
+  color: black
+}
+
+.form-check{
+  color: black;
+}
+
+#selec{
+  color: black;
+}
+
+h2{
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+  
+.collage {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+footer{
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    color: black;
+}
+
+h6{
+    color: rgb(247, 244, 244);
+}
+
+h5{
+  color: black;
+  text-align: center;
+}
+
+.card-body{
+height: 90px;
+}
+
+

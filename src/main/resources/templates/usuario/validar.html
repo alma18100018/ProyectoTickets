@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesion</title>
+   <link rel="stylesheet" href="/all.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/css/EstiloLogin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div id="Login" class="col-md-6">
+
+        <img class="logo" src="/Imag/IT_snpuebla.jpg">
+        <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+        <h1 style="color: white">Inicio de sesion</h1>
+        </div>
+        <div class="col-3"></div>
+        </div>
+					<div th:if="${param.error != null and session['SPRING_SECURITY_LAST_EXCEPTION'] != null}" 
+						class="alert alert-warning alert-dismissible fade show"
+						role="alert">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<h4 th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></h4>
+					</div>
+				
+				<form action="#" th:action="@{/usuario/validar}" method="post" class = "was-validated">
+				
+				<div class="row">
+				<div class="col-4"></div>
+				<div class="col-5">
+				<div class="input-group mb-3">
+                        <div class="form-group">
+					<label>Correo electronico: </label>
+					<input type="text" required="required" 
+					name="username" class="form-control" placeholder = "ejemplo@gmail.com"/>
+					<div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Ingresa los Campos</div>
+					</div>
+					</div>
+					</div>
+					<div class="col-3"></div>
+					</div>
+					
+					
+					<div class="row">
+				<div class="col-4"></div>
+				<div class="col-5">
+					<div class="input-group mb-3">
+                        <div class="form-group">
+					<label>Clave de acceso: </label>
+					<input type="password" required="required" 
+					name="password" class="form-control" />
+					<div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Ingresa los Campos</div>
+					</div>
+					</div>
+					
+					</div>
+					<div class="col-3"></div>
+					</div>
+					
+					<div class="row">
+                <div class="col-5"></div>
+                <div class="col-4">
+					<p>
+						<input type="submit" value="Iniciar Sesion" class="btn btn-primary" />
+						
+						<div class="form-group">
+					<div class="form-group">
+					<a th:href="@{/usuario/agregar}">No tengo una cuenta, registrarme...</a>
+					</div>
+				</div>
+						
+			
+					</p>
+				</div>
+    <div class="col-md-3">
+    </div>
+    </div>
+</body>
+</html>

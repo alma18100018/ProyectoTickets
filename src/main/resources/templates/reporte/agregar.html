@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/all.css"/>
+<script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
+    <link href="/css/EstiloP.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container">
+
+    <h1 align=center>Pagina de Tickes en Soporte Técnico</h1>
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/inicioindex/inicio}">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/ticket/listar}">Notificaciones</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                	<li class="nav-item">
+                		<a class="nav-link" href="/usuario/salir"><i class="fas fa-door-open"></i>Cerrar sesion</a>
+                	</li>
+                </ul>
+            </div>
+        </div>
+    </nav><br>
+<div th:if="*{error != null}" 
+						class="alert alert-warning alert-dismissible fade show"
+						role="alert">
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+						<h4 th:text=*{error}></h4>
+					</div>
+
+        <div id="contenido2">
+            <br><br>
+            <form action="#" th:action="@{agregar}" th:object="${reporte}" method="post" class = "was-validated">
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <span class="input-group-text">Ingrese su nombre completo:</span>
+                    <input type="text" required="required" th:field="*{nombre}" class="form-control" placeholder="Alma">
+                    <input type="text" required="required" th:field="*{apellidos}" class="form-control" placeholder="Santiago">
+                    <div class="valid-feedback">Datos validos</div>
+                    <div class="invalid-feedback">Ingresa los datos</div>
+                </div>
+                <div class="col-2"></div>
+            </div><br>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                <label for="correoinst" class="form-label">Correo electronico institucional:</label>
+                        <input type="email" required="required" th:field="*{correoinst}" class="form-control" placeholder="ejemplol18100018@zacatlan.tecnm-mx">
+                    <div class="valid-feedback">Datos validos</div>
+                    <div class="invalid-feedback">Ingresa un numero valido</div>
+                    <label for="email"></label>
+                </div>
+                <div class="col-2"></div>
+            </div> <br>
+
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                <label for="sistemareportado" class="form-label">Tipo de sistema en conflicto:</label>
+                        <select class="form-control" th:value="*{sistemareportado}" name="sistemareportado">
+                        <option>Tec en linea</option>
+                        <option>Musa</option>
+                        <option>Educación a distancia</option>
+                        <option>Sicot</option>
+                        <option>Sicote-Docentes</option>
+                        <option>WebServer-Docentes</option>
+                        <option>Pase de lista</option>
+                        <option>Asistencia</option>
+                        <option>Reportes mensuales</option>
+                        </select>
+                        
+                    <br> <br>
+                </div>
+                <div class="col-2"></div>
+            </div> <br>
+
+            
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                <label for="correodestino" class="form-label">Correo Electrónico Institucional del Destino:</label>
+
+                        
+                        <select class="form-control" th:value="*{correodestino}" name="correodestino">
+                        <option>Encargado1@gmail.com</option>
+                        <option>Encargado2@gmail.com</option>
+                        <option>Encargado3@gmail.com</option>
+                        </select>
+                    <div class="valid-feedback">Datos validos</div>
+                    <div class="invalid-feedback">Ingresa un numero valido</div>
+                    <label for="email"></label>
+                </div>
+                <div class="col-2"></div>
+            </div> <br>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                
+                <label for="fechareporte" class="form-label">Fecha:</label>
+                        <input type="date" required="required" th:value="*{fechareporte}" name="fechareporte" class="form-control" >
+                    <div class="valid-feedback">Datos validos</div>
+                    <div class="invalid-feedback">Ingresa un numero valido</div>
+                    <label for="email"></label>
+                </div>
+                <div class="col-2"></div>
+            </div> <br>
+
+            
+            
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                <label for="Evidencia" class="form-label">Evidencia:</label>
+                        <input type="file" required="required" class="form-control">
+                </div>
+                <div class="col-2"></div>
+            </div> <br>
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <input type="submit" value="Guardar datos" class="btn btn-dark">
+                    <input type="reset" value="Limpiar los campos" class="btn btn-dark">
+                </div>
+                <div class="col-4"></div>
+            </div><br>
+            <br> <br>
+</form>
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <footer>
+                        <h6>Elaborado por:</h6>
+                        <h6>**Alma Guadalupe Herandez Santiago 18100018**Víctor Jahir Cuevas Contreras 18100057**Ángel Armando Cerón Hernández 173100292**</h6>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+
+
+    
+</div>
+
+
+
+</body>
+</html>
